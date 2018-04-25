@@ -7,7 +7,7 @@ mn.bgcolor("black")
 mn.title("A Maze Game")
 mn.setup(1000, 10000)
 
-images = ["walls.gif", "pica.gif", "tre.gif", "bombleft.gif", "bombright.gif"]
+images = ["pica.gif", "tre.gif", "bombleft.gif", "bombright.gif"]
 
 for image in images:
     turtle.register_shape(image)
@@ -255,20 +255,18 @@ while True:
     for treasure in treasures:
         if player.collision(treasure):
             player.gold += treasure.gold
-            print("Player gold:", int(format(player.gold)))
+            print("**Player gold:", int(format(player.gold)))
             # Destroy the treasure
             treasure.destroy()
             # Remove the Treasure from list
             treasures.remove(treasure)
     for enemy in enemies:
         if player.collision(enemy):
-            print("*****lol_lol_lol*****")
+            print("*****You lose try Again*****")
             exit()
     for win in wins:
         if player.collision(win):
             print("********Winner*********")
             exit()
-
-
 
     mn.update()
